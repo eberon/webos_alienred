@@ -1,0 +1,9 @@
+enyo.depends(
+	"AlienRedListing.js",
+	"AlienRedInbox.js",
+	"AlienRedSubredditListing.js",
+	"AlienRedCommentsListing.js",
+	"AlienRed.js",
+	"MyWebService.js",
+	"functions.js"
+);

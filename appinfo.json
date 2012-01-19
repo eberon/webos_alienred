@@ -1,0 +1,12 @@
+{
+	"id": "com.gavchap.alienred",
+	"version": "1.1.1",
+	"vendor": "GavoTheSane",
+	"type": "web",
+	"main": "index.html",
+	"title": "AlienRed",
+	"theme": "Heritage",
+	"uiRevision": 2,
+	"icon": "icon.png",
+	"splashicon":"splash.png"
+}

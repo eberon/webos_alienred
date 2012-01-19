@@ -1,0 +1,68 @@
+.enyo-grabbutton{
+	position: static !important;	
+}
+
+.enyo-toolbar{
+	min-height: 48px !important;	
+	background-color: #004466 !important;		
+}
+
+.enyo-header{
+	min-height: 48px;	
+	background-color: #eee;
+}
+
+.enyo-header-inner{
+	padding: 5px 5px;	
+}
+
+#alienRed_subredditText{
+	border: 1px solid #ccc;
+	background-color: white;
+	border-radius: 5px;
+	padding: 5px;	
+	color: #333;
+	font-size: 0.8em;
+}
+
+.alienRed_ToolBar .enyo-button{
+	background: none;	
+	
+	-webkit-border-image: none;
+
+}
+
+.alienRed-divider{
+	background-color: white;	
+}
+
+.alienRed_smallButton{
+	padding: 0px 2px;
+	font-size: 12px;	
+	margin: 0px;
+	margin-right: 5px;
+}
+
+
+
+.md blockquote{
+	border-left: 2px solid blue;
+	padding-left: 1em;
+	margin: 0.5em;
+}
+
+.alienRed_unselected{
+	background-color: white;	
+}
+
+.alienRed_selected{
+	background-color: #f5f5ff;	
+}
+
+/*.alienRed_unselected{
+	background-color: #222222;	
+}
+
+.alienRed_selected{
+	background-color: #222255;	
+}*/
