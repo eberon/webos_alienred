@@ -226,6 +226,7 @@ enyo.kind({
 	},
 
 	gotMoreCommentsFail: function(inSender, inResponse, inRequest){
+		enyo.windows.addBannerMessage("Could not contact reddit.com", "{}");
 		//enyo.log(inResponse);	
 	},
 
@@ -285,9 +286,19 @@ enyo.kind({
 			return false;
 			
 		var index=inRequest.rowIndex;
-		this.selectedRow=index;
 		var cr=index;
-
+		
+		if ( this.selectedRow != index ) {
+			this.selectedRow = index;
+			this.$.commentList.refresh();
+			return false;
+		}
+		
+		if(enyo.getCookie("reddit_session")==null) {
+			enyo.windows.addBannerMessage("You must be logged in.", "{}");
+			return false;
+		}
+		
 		if(this.comments[cr].more)
 		{
 			this.$.moreCommentSpinner.show();
@@ -337,10 +348,9 @@ enyo.kind({
 			this.$.moreCommentSpinner.hide();
 			cr=inIndex;
 			if (this.selectedRow==inIndex)
-				this.$.bgLayer.applyStyle("background-color", "#ffccaa");
+				this.$.bgLayer.applyStyle("background-color", "#ffe0cc");
 			else
 				this.$.bgLayer.applyStyle("background-color", "#f5f5ff");
-
 					
 			if(this.comments[cr])
 			{
@@ -391,10 +401,9 @@ enyo.kind({
 					this.$.score.show();
 					//this.$.comment.applyStyle("color","#000000");
 				}
-			
-			return true;	
+
+				return true;	
 			}
-			
 		}
 	},
 	
