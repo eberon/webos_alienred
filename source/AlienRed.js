@@ -331,30 +331,38 @@ enyo.kind({
 	/* voting functions */	
 	upvotePressed: function(){
 		//enyo.log(this.currentListingView);
-		if(this.currentListingView.likes==false)
-		{
-			this.$.setVote.call({"id": this.currentID,"dir":"0","uh":this.modHash});
-			if(this.currentLinkIndex>=0)
-				this.listing[this.currentLinkIndex].data.likes=null;
-		}else{
-			this.$.setVote.call({"id": this.currentID,"dir":"1","uh":this.modHash});
-			if(this.currentLinkIndex>=0)
-				this.listing[this.currentLinkIndex].data.likes=true;
+		if(enyo.getCookie("reddit_session")!=null) {
+			if(this.currentListingView.likes==false)
+			{
+				this.$.setVote.call({"id": this.currentID,"dir":"0","uh":this.modHash});
+				if(this.currentLinkIndex>=0)
+					this.listing[this.currentLinkIndex].data.likes=null;
+			}else{
+				this.$.setVote.call({"id": this.currentID,"dir":"1","uh":this.modHash});
+				if(this.currentLinkIndex>=0)
+					this.listing[this.currentLinkIndex].data.likes=true;
+			}
+			
+		} else {
+			this.openLoginPrompt();
 		}
 		//enyo.log("UV:"+this.listing[this.currentLinkIndex].data.likes);
 	},
 	downvotePressed: function(){
-		if(this.currentListingView.likes==true)
-		{
-			this.$.setVote.call({"id": this.currentID,"dir":"0","uh":this.modHash});
-			if(this.currentLinkIndex>=0)
-				this.listing[this.currentLinkIndex].data.likes=null;
-		}else{
-			this.$.setVote.call({"id": this.currentID,"dir":"-1","uh":this.modHash});
-			if(this.currentLinkIndex>=0)
-				this.listing[this.currentLinkIndex].data.likes=false;
+		if(enyo.getCookie("reddit_session")!=null) {
+			if(this.currentListingView.likes==true)
+			{
+				this.$.setVote.call({"id": this.currentID,"dir":"0","uh":this.modHash});
+				if(this.currentLinkIndex>=0)
+					this.listing[this.currentLinkIndex].data.likes=null;
+			}else{
+				this.$.setVote.call({"id": this.currentID,"dir":"-1","uh":this.modHash});
+				if(this.currentLinkIndex>=0)
+					this.listing[this.currentLinkIndex].data.likes=false;
+			}
+		} else {
+			this.openLoginPrompt();
 		}
-			
 		//enyo.log("DV:"+this.listing[this.currentLinkIndex].data.likes);
 	
 	},
