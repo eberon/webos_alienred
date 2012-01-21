@@ -417,6 +417,7 @@ enyo.kind({
 		this.comments=[];
 		this.level=0;
 		this.$.commentList.reset();
+		this.selectedRow=-1;
 		if(url)
 			this.$.getComments.setUrl(url);
 		this.$.getComments.call();
